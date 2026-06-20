@@ -33,14 +33,14 @@
         <div class="flex flex-col md:flex-row gap-8">
 
             {{-- Sidebar Kategori --}}
-            <div class="fixed inset-y-0 right-0 z-40 w-3/4 bg-white border-l shadow-xl p-6 transform transition-transform duration-300 md:relative md:transform-none md:w-1/4 md:h-fit md:border-none md:shadow-none md:bg-transparent md:p-0"
+            <div class="fixed inset-y-0 right-0 z-40 w-3/4 bg-white border-l shadow-xl p-6 transform transition-transform duration-300 md:relative md:transform-none md:w-1/4 md:h-fit md:border-none md:shadow-none md:bg-transparent md:p-0 overflow-y-auto h-full"
                 :class="isSidebarOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'">
 
                 <button @click="isSidebarOpen = false" class="md:hidden mb-6 text-slate-400">
                     <i class="fa-solid fa-xmark text-2xl"></i>
                 </button>
 
-                <div class="sticky top-6">
+                <div class="sticky top-6 pb-10">
                     <h6 class="text-[11px] uppercase tracking-widest text-slate-400 font-bold mb-6 px-2">Kategori Modul</h6>
                     <nav class="flex flex-col gap-1">
                         @foreach ($docs as $module => $items)

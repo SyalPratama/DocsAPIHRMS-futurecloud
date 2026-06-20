@@ -10,7 +10,7 @@
             <h2 class="text-2xl font-extrabold text-slate-900">Dashboard</h2>
             <p class="text-slate-500 mt-1 text-sm">Selamat datang kembali, pantau aktivitas sistem Anda di sini.</p>
         </div>
-        <button @click="isSidebarOpen = true"
+        <button @click="open = true"
             class="md:hidden p-3 text-slate-600 bg-slate-50 rounded-2xl border border-slate-200 hover:bg-slate-100 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
