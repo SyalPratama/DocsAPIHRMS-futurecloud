@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hrms_docs_app
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - hrms_docs_net
+
+  web:
+    image: nginx:alpine
+    container_name: hrms_docs_web
+    ports:
+      - "8111:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on:
+      - app
+    networks:
+      - hrms_docs_net
+
+  db:
+    image: postgres:15
+    container_name: hrms_docs_db
+    environment:
+      POSTGRES_DB: hrms_docs_db
+      POSTGRES_USER: hrms_docs_user
+      POSTGRES_PASSWORD: 2026hrms_docs
+    ports:
+      - "5461:5432"
+    volumes:
+      - hrms_docs_data:/var/lib/postgresql/data
+    networks:
+      - hrms_docs_net
+
+networks:
+  hrms_docs_net:
+
+volumes:
+  hrms_docs_data:
